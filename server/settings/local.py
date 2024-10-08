@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from . import server
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "server"
 ]
 
 MIDDLEWARE = [
@@ -49,7 +51,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "CBAS.urls"
+ROOT_URLCONF = "APC-2024-2025-T1-10-Chambers-of-the-Burning-Ashes-System.urls"
 
 TEMPLATES = [
     {
@@ -67,16 +69,21 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "CBAS.wsgi.application"
+WSGI_APPLICATION = "APC-2024-2025-T1-10-Chambers-of-the-Burning-Ashes-System.wsgi.application"
 
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+#localized only, dummy only
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'mypassword',
+        'HOST': 'my-postgres',
+        'PORT': '8080',
     }
 }
 
