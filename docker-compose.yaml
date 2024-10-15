@@ -1,9 +1,9 @@
-version: '3'
-
 services:
   web:
     build: .
     command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+    environment:
+      DJANGO_SETTINGS_MODULE: server.settings.local
     volumes:
       - .:/app
     ports:
@@ -15,3 +15,5 @@ services:
     image: postgres
     environment:
       POSTGRES_PASSWORD: mypassword
+
+ 
